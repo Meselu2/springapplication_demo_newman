@@ -31,5 +31,5 @@ jobs:
         collection: ./api_tests/Even-odd-test.postman_collection.json
         environment: ./api_tests/even-odd-postman-enviroment.postman_environment.json
         reporters: cli
-    - name: Output summary to consoles
-      run: echo "KEY=VALUE" >>$GITHUB_OUTPUT
+    - name: Set output
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT
