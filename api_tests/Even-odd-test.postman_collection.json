@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "5b5e168d-911d-486b-9a9b-9b34c4419f34",
+		"name": "Even-odd-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29166035"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/validate/prime-number?number=5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/validate/prime-number?number={{number}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"validate",
+						"prime-number"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "{{number}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
