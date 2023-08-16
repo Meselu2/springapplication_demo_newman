@@ -32,4 +32,4 @@ jobs:
         environment: ./api_tests/even-odd-postman-enviroment.postman_environment.json
         reporters: cli
     - name: Output summary to console
-      run: echo ${{ steps.run-newman.outputs.summary }}
+      run: echo "KEY=VALUE" >>$GITHUB_OUTPUT
