@@ -53,7 +53,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>springapplication_demo_newman</finalName>
+        <finalName>springbot-application-image</finalName>
     </build>
 
 </project>
