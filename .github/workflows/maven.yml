@@ -45,7 +45,7 @@ jobs:
       uses: google-github-actions/deploy-cloudrun@main
       with:
                 image: meselu27/springbot-application-image:latest
-                service: My First Project
+                service: spring-app-55394
                 region: us-central1
                 platform: managed
                 allow-unauthenticated: true
