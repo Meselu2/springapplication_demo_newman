@@ -1,0 +1,26 @@
+{
+  "id" : "67649ae1-3fa5-4e07-9ca7-8879fe8e3141",
+  "request" : {
+    "urlPath" : "/validate/prime-number",
+    "method" : "GET",
+    "headers" : {
+      "Content-Type" : {
+        "equalTo" : "application/json"
+      }
+    },
+    "queryParameters" : {
+      "number" : {
+        "equalTo" : "5"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "Odd",
+    "headers" : {
+      "Content-Type" : "text/plain;charset=ISO-8859-1"
+    },
+    "transformers" : [ "response-template", "spring-cloud-contract" ]
+  },
+  "uuid" : "67649ae1-3fa5-4e07-9ca7-8879fe8e3141"
+}
