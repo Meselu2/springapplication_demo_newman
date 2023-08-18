@@ -24,24 +24,19 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Checkout
       uses: actions/checkout@v1
-  deploy:
-    needs: build_test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
-        with:
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0
+      with:
             project_id: ace-agility-396119
             service_account_key: ${{ secrets.SA_CREDS}}
             export_default_credentials: true
-      - name: Configure docker for GCP
-        run: gcloud auth configure-docker
+    - name: Configure docker for GCP
+      run: gcloud auth configure-docker
 
-      - name: Build and push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
+    - name: Build and push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
           image: meselu27/springbot-application-image
           tags: latest
           registry: docker.io
@@ -49,9 +44,9 @@ jobs:
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
 
-      - name: Deploy to Cloud Run
-        uses: google-github-actions/deploy-cloudrun@main
-        with:
+    - name: Deploy to Cloud Run
+      uses: google-github-actions/deploy-cloudrun@main
+      with:
                 image: meselu27/springbot-application-image:latest
                 service: My First Project
                 region: us-central1
