@@ -39,24 +39,20 @@ jobs:
       - name: Configure docker for GCP
         run: gcloud auth configure-docker
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-        with:
-          version: v0.7.0
-
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
-                context: .
-                push: true
-                tags: gcr.io/ace-agility-396119/Dockerfile:latest
-                build-args: |
-                  HTTP_PORT=8080
+          image: meselu27/springbot-application-image
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.USERNAME}}
+          password: ${{ secrets.PASSWORD}}
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@main
         with:
-                image: gcr.io/ace-agility-396119/Dockerfile:latest
+                image: meselu27/springbot-application-image:latest
                 service: My First Project
                 region: us-central1
                 platform: managed

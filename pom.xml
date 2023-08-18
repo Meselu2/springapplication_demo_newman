@@ -53,6 +53,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>springapplication_demo_newman</finalName>
     </build>
 
 </project>

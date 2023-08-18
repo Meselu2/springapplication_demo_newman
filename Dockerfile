@@ -1,6 +1,5 @@
 FROM openjdk:17-oracle
 VOLUME /tmp
 EXPOSE 8080
-ARG JAR_FILE=target/*.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD target/springbot-application-image.jar
+ENTRYPOINT ["java","-jar","/springbot-application-image.jar"]
