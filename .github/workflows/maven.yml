@@ -31,7 +31,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@feature-test
         with:
             project_id: ace-agility-396119
             service_account_key: ${{ secrets.SA_CREDS}}
