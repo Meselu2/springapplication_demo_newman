@@ -73,7 +73,7 @@ jobs:
         project_id: spring-app-55394
         service_account_key: ${{ secrets.SA_CREDS}}
         export_default_credentials: true
-    - uses: actions/checkout@v
+    - uses: actions/checkout@v3
     - uses: matt-ball/newman-action@master
       with:
           apiKey: ${{ secrets.postmanApiKey }}
