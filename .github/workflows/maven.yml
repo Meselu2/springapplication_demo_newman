@@ -45,7 +45,7 @@ jobs:
       uses: google-github-actions/deploy-cloudrun@main
       with:
                 image: meselu27/springbot-application-image:latest
-                service: 633860077065-compute
+                service: application-deployment
                 region: us-central1
                 platform: managed
                 allow-unauthenticated: true
