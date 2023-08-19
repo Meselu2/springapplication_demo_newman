@@ -73,13 +73,7 @@ jobs:
         project_id: spring-app-55394
         service_account_key: ${{ secrets.SA_CREDS}}
         export_default_credentials: true
-    - uses: actions/checkout@v3
-    - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v1'
-      with:
-        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'application-deployment@spring-app-55394.iam.gserviceaccount.com'
+    - uses: actions/checkout@v
     - uses: matt-ball/newman-action@master
       with:
           apiKey: ${{ secrets.postmanApiKey }}
