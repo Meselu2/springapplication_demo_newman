@@ -9,8 +9,54 @@
 		{
 			"name": "localhost:8080/validate/prime-number?number=5",
 			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "https://spreadsheets.google.com/feeds/",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "107922224229090298633",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://oauth2.googleapis.com/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/auth",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "google token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "application-deployment@spring-app-55394.iam.gserviceaccount.com",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjdjOWM3OGUzYjAwZTFiYjA5MmQyNDZjODg3YjExMjIwYzg3YjdkMjAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE3NTExNTA4NzQxMzgxOTc4OTk2IiwiZW1haWwiOiJoYWlsdS5tZXNlbHVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJLa1RRRlhuWnNBWENYOFpyTlJyT0JBIiwibmJmIjoxNjkyNTkwMDMzLCJpYXQiOjE2OTI1OTAzMzMsImV4cCI6MTY5MjU5MzkzMywianRpIjoiZGI2M2E4NTNmMjY4ZmU4YTU5NjRmOTBhOWI4NjdkMWQ4NTUwOTNmMSJ9.GVPmQGgQheY4TkeEj4wT64Ah5JozErxLsAHK4541mSx3s5YGa4wwWRZFi03pOzXvoWIJh3b7k7MlTGBSizZqJbjWD1HqLRyGMZb6Zb6SyMH2SY071bu5jitP-AtWqdG6GRCpzNEHoQ9UHW6aX7YugPpD_90wgF0xZcFPXWiAoG2rIC_1n0w0iXkFdIqcNpbPka4GvkFfy-kIxV-CW-mc4ceFuCJKAqosiycKMzJ5dokGqi3Qw3KR_0W8A_j4t4eT68t0bDc5yZyP1Y7A7KLNxUjp2wQPKDkwZbPnp2FWVg6lwSMj0M6FmnsP5zRy1f8xbmDlfY8OTeZwi7wWjz1nwA",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{url}}/validate/prime-number?number={{number}}",
 					"host": [
