@@ -9,6 +9,6 @@ please include a summary of the changes and related issue.
 ### Any others
 *
 ### Jira ticket Link(s) to taks for this PR
-- [ ] Have you succefully run tests with your changes locally?
-- [ ] Have you updatd or added secret?
-- [ ] Haveyou updated documentation?
+- [ ] Have you successfully run tests with your changes locally?
+- [ ] Have you updated or added secret?
+- [ ] Have you updated documentation?
