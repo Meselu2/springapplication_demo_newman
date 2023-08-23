@@ -67,16 +67,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build_test, deploy]
     steps:
-    - id: auth
-      uses: google-github-actions/auth@v1
-      with:
-          credentials_json: ${{ secrets.SA_CREDS}}
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
     - uses: actions/checkout@v3
     - uses: matt-ball/newman-action@master
       with:
           collection: ./api_tests/Even-odd-test.postman_collection.json
           environment: ./api_tests/even-odd-postman-enviroment.postman_environment.json
-    - name: Output summary to console
-      run: echo ${{ steps.run-newman.outputs.summary }}
+    - name: post to a slack channel
+      id: slack
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        channel-id: 'api-test'
+        slack-message: "api-test result: ${{ steps.Run matt-ball/newman-action@master.summary }}"
+      env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
