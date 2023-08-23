@@ -78,14 +78,11 @@ jobs:
     - name: "Run tests"
       run: "newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json 
       -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darkTheme  > runreport1.html"
-    - name: post to a slack channel
-      id: slack
-      uses: slackapi/slack-github-action@v1.24.0
+    - name: Publish report
+      uses: MeilCli/slack-upload-file@v1
       with:
-        channels: 'api-test'
-        channel-id: 'D05NVR7N4F8'
-        file_path: './api_tests/htmlreport.html'
+        slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
+        file_path: './tests/htmlreport.html'
         file_name: 'postmanReport.html'
         file_type: 'html'
-      env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        channels: 'api-test-reports'
