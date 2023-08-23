@@ -68,15 +68,23 @@ jobs:
     needs: [build_test, deploy]
     steps:
     - uses: actions/checkout@v3
-    - uses: matt-ball/newman-action@master
+    - uses: actions/setup-node@v2
       with:
-          collection: ./api_tests/Even-odd-test.postman_collection.json
-          environment: ./api_tests/even-odd-postman-enviroment.postman_environment.json
+        node-version: "18"
+    - name: "Install newman"
+      run: "npm install -g newman"
+    - name: "Install newman reporter"
+      run: "npm install -g newman-reporter-htmlextra"
+    - name: "Run tests"
+      run: "newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json 
+      -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darkTheme  > runreport1.html"
     - name: post to a slack channel
       id: slack
       uses: slackapi/slack-github-action@v1.24.0
       with:
-        channel-id: 'api-test'
-        slack-message: "api-test result: ${{ steps.Run matt-ball/newman-action@master.summary }}"
+        channels: 'api-test'
+        file_path: './api_tests/htmlreport.html'
+        file_name: 'postmanReport.html'
+        file_type: 'html'
       env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
