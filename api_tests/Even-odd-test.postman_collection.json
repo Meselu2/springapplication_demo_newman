@@ -1,59 +1,39 @@
 {
 	"info": {
-		"_postman_id": "5b5e168d-911d-486b-9a9b-9b34c4419f34",
+		"_postman_id": "d559aff3-b982-4aa7-a0ed-799ca4a385bc",
 		"name": "Even-odd-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29166035"
+		"_exporter_id": "29238076"
 	},
 	"item": [
 		{
 			"name": "localhost:8080/validate/prime-number?number=5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm. test (\"Verify all users can be listed\", function () {",
+							"var data = pm.response.text() ;",
+							"pm.expect (data === \"Odd\" ).to.be.true;",
+							"pm.response.to.have.status (200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
-					"type": "oauth2",
-					"oauth2": [
-						{
-							"key": "scope",
-							"value": "https://spreadsheets.google.com/feeds/",
-							"type": "string"
-						},
-						{
-							"key": "clientId",
-							"value": "107922224229090298633",
-							"type": "string"
-						},
-						{
-							"key": "accessTokenUrl",
-							"value": "https://oauth2.googleapis.com/token",
-							"type": "string"
-						},
-						{
-							"key": "authUrl",
-							"value": "https://accounts.google.com/o/oauth2/auth",
-							"type": "string"
-						},
-						{
-							"key": "tokenName",
-							"value": "google token",
-							"type": "string"
-						},
-						{
-							"key": "clientSecret",
-							"value": "application-deployment@spring-app-55394.iam.gserviceaccount.com",
-							"type": "string"
-						},
-						{
-							"key": "addTokenTo",
-							"value": "header",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjdjOWM3OGUzYjAwZTFiYjA5MmQyNDZjODg3YjExMjIwYzg3YjdkMjAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE3NTExNTA4NzQxMzgxOTc4OTk2IiwiZW1haWwiOiJoYWlsdS5tZXNlbHVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJRbGJKc2JvWDNyWUhBbnpXOW1sVE53IiwibmJmIjoxNjkyNjMwMTkwLCJpYXQiOjE2OTI2MzA0OTAsImV4cCI6MTY5MjYzNDA5MCwianRpIjoiMmYyZjNiYmNmMzQ2MmQ0ZGZkOTcwYzg2MTk2YmI5OWY3ZjRkMjEwNyJ9.bW3-9wGeShNrKD-t5AB70wrXgfwy_2o68JwomSEqXq4UvnhmwYXuk2zr3VvC5BiX1o7ljJCvO7jSetSgf8ssKPf6Uxo2a8N6vwsnjV63Vth3MjiBbgDm4_JdNnnJVY8zltIhXV6v-ltYpXEcxYs3u81zDlPDxVnDxUwSElBkQutSVGHT_uEQ22yPrmCGkyV9NDSt6f_nh2fk1Z6fEgUpR6cGGZxsVpegEBNE_N2o8epnBP8gGv9wtOhAlcv6cP18mC3HiDd20TjjYgkPpAsfX0a04_-OmQppEh_DyfFwBYFDhn5Sq7Q9bvqbExyBUEKBX6FRnpxWDb_xRS18W2S05Q",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImMzYWZlN2E5YmRhNDZiYWU2ZWY5N2U0NmM5NWNkYTQ4OTEyZTU5NzkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE3NTExNTA4NzQxMzgxOTc4OTk2IiwiZW1haWwiOiJoYWlsdS5tZXNlbHVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJFaG9CbVMyVjBYazVHdnNvRV9LTFNnIiwibmJmIjoxNjkyODE2ODU0LCJpYXQiOjE2OTI4MTcxNTQsImV4cCI6MTY5MjgyMDc1NCwianRpIjoiYWRkOTk3MGVmODFkZGMzZDE3NGIzN2I0NGUyNTFkZmNkNTI4NzZiOSJ9.N2LajT3RELP0Up7mN3CUFZNtDwzza78M58gp8shsXMwdj3DnZ2EWU2F6wPK0ZTt51X7HPLKgxRBqi6WQRI_2KoftBsz3InMYUcob-W3qvpd1xu1IBxYgVXaLWhzvmDIa62nYrT7GcQAPP2_LEGWpWMg30Uz1xla5R8tfJDWtQkBjYjcyvPdnFEww9mHRh177pYSVeERqrTTNqVRTLN_LAK5qA6bwatx8CLIY9vcuqJfhIkoEbJ-rMikhpIXyVdnKjFM0VVI1DFSKqKUd7ie_eBsK4oOzL8c31fL-F5QT_rEWVrK4C0IObu5RztdAFSGOqVqYBD4Itdus0rNHf9qYFQ",
 						"type": "text"
 					}
 				],
