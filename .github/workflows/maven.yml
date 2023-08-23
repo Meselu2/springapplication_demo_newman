@@ -83,6 +83,7 @@ jobs:
       uses: slackapi/slack-github-action@v1.24.0
       with:
         channels: 'api-test'
+        channel-id: 'D05NVR7N4F8'
         file_path: './api_tests/htmlreport.html'
         file_name: 'postmanReport.html'
         file_type: 'html'
