@@ -88,4 +88,4 @@ jobs:
         file_path: './api_tests/htmlreport.html'
         file_name: 'postmanReport.html'
         file_type: 'html'
-        channels: 'api-test-reports'
+        channels: 'api-test'
