@@ -1,0 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+springapplication:
+  demo:
+    baseUrl: "http://localhost:8089"
