@@ -1,9 +1,16 @@
-name: Java CI with Maven
+name: common-workflow-run
 
 on:
+  workflow_dispatch:
+    branches:
+      - main
   pull_request:
+    types: [opened, edited, reopened]
     branches:
       - main
 jobs:
-  build_test:
+  run-common-test:
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
+    with:
+      app-name: 'springapplication_demo_newman'
+      java-version: '17'
