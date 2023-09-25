@@ -6,7 +6,4 @@ on:
       - main
 jobs:
   build_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build with Maven
-        run: echo hello world
+    uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
