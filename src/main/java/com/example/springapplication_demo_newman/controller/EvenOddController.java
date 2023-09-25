@@ -9,6 +9,6 @@ public class EvenOddController {
 
     @GetMapping("/validate/prime-number")
     public String isNumberPrime(@RequestParam("number") Integer number) {
-        return number % 2 == 0 ? "Even" : "Oddd";
+        return number % 2 == 0 ? "Even" : "Odd";
     }
 }
