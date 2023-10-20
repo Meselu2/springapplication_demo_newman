@@ -28,11 +28,25 @@ on:
   push:
     branches:
       - main
-env:
-  GODOT_MONO_BUILD_TAG: ${{ inputs.reload-test-scenario || '1500-user-test' }}
 jobs:
-  run-common-test:
+  EnvSetup:
+    name: Setup Dynamic Environment Variables
     runs-on: ubuntu-latest
+    outputs:
+      build-and-verify: ${{ steps.set-output-defaults.outputs.build-and-verify }}
+    steps:
+      - name: set outputs with default values
+        id: set-output-defaults
+        run: |
+          if [[ ${{ github.inputs.run-sonar-scan }} != null]]; then
+          v=${{ github.inputs.run-sonar-scan
+          else
+          v = '1500-user-test'
+          fi
+          # If workflow_dispatch, use inputs (left), if other trigger, use default env (right)
+          echo "::set-output name=build-and-verify::v"
+  run-common-test:
+    needs: [EnvSetup]
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
     with:
       app-name: 'springapplication_demo_newman'
@@ -40,5 +54,6 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario: ${{env.GODOT_MONO_BUILD_TAG}}
+      reload-test-scenario:  ${{needs.EnvSetup.outputs.build-and-verify}}
+
 
