@@ -28,6 +28,8 @@ on:
   push:
     branches:
       - main
+env:
+  GODOT_MONO_BUILD_TAG: ${{ inputs.reload-test-scenario || '1500-user-test' }}
 jobs:
   run-common-test:
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
@@ -37,5 +39,5 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario: ${{inputs.reload-test-scenario}}
+      reload-test-scenario: ${{env.GODOT_MONO_BUILD_TAG}}
 
