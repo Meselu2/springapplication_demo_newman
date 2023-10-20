@@ -37,5 +37,5 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario: ${{inputs.run-sonar-scan }}
+      reload-test-scenario: ${{inputs.reload-test-scenario}}
 
