@@ -48,6 +48,6 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario:  ${{needs.EnvSetup.outputs.build-and-verify}}
+      reload-test-scenario:  ''
 
 
