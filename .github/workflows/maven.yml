@@ -48,6 +48,6 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario:  ${{ github.event.inputs.build-and-verify || '1500-user-test' }}"
+      reload-test-scenario:  ${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}"
 
 
