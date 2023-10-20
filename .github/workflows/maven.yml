@@ -39,7 +39,7 @@ jobs:
         id: set-output-defaults
         run: |
           if [[ ${{ github.inputs.run-sonar-scan }} != null]]; then
-          v=${{ github.inputs.run-sonar-scan
+          v=${{ github.inputs.run-sonar-scan}}
           else
           v = '1500-user-test'
           fi
