@@ -44,9 +44,7 @@ jobs:
           else
           v = '1500-user-test'
           fi
-#          # If workflow_dispatch, use inputs (left), if other trigger, use default env (right)
-#           echo "::set-output name=build-and-verify::${{ v || v }}"
-          echo v;
+          echo v
   run-common-test:
     needs: [EnvSetup]
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
