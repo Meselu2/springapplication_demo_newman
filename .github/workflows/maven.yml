@@ -38,7 +38,7 @@ jobs:
       - name: set outputs with default values
         id: set-output-defaults
         run: |
-            echo "::set-output name=build-and-verify::${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}"
+            echo "build-and-verify::${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}">> $GITHUB_OUTPUT
   run-common-test:
     needs: [EnvSetup]
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
@@ -48,6 +48,6 @@ jobs:
       run-sonar-scan: ${{inputs.run-sonar-scan || true}}
       run-static-scan: ${{inputs.run-static-scan || true}}
       run-reload-test: ${{inputs.run-reload-test || true}}
-      reload-test-scenario:  ${{ inputs.reload-test-scenario || '1500-user-test' }}"
+      reload-test-scenario:  ${{needs.EnvSetup.outputs.build-and-verify}}
 
 
