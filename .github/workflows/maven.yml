@@ -38,7 +38,7 @@ jobs:
       - name: set outputs with default values
         id: set-output-defaults
         run: |
-          var v;
+          var v
           if [[ ${{ github.inputs.run-sonar-scan }} != null]]; then
           v=${{ github.inputs.run-sonar-scan}}
           else
