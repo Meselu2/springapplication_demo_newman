@@ -38,7 +38,7 @@ jobs:
       - name: set outputs with default values
         id: set-output-defaults
         run: |
-            echo "build-and-verify::${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}">> $GITHUB_OUTPUT
+            echo "build-and-verify=${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}">> $GITHUB_OUTPUT
   run-common-test:
     needs: [EnvSetup]
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
