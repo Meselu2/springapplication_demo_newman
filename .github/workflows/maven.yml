@@ -32,6 +32,7 @@ env:
   GODOT_MONO_BUILD_TAG: ${{ inputs.reload-test-scenario || '1500-user-test' }}
 jobs:
   run-common-test:
+    runs-on: ubuntu-latest
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
     with:
       app-name: 'springapplication_demo_newman'
