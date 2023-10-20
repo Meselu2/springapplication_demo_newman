@@ -38,13 +38,7 @@ jobs:
       - name: set outputs with default values
         id: set-output-defaults
         run: |
-          var v
-          if [[ ${{ github.inputs.run-sonar-scan }} != null]]; then
-          v=${{ github.inputs.run-sonar-scan}}
-          else
-          v = '1500-user-test'
-          fi
-          echo v
+            echo "::set-output name=build-and-verify::${{ github.event.inputs.reload-test-scenario || '1500-user-test' }}"
   run-common-test:
     needs: [EnvSetup]
     uses: Meselu2/GitHub-action-workflow/.github/workflows/maven.yml@main
