@@ -100,14 +100,14 @@ jobs:
             assertion_failed=$(jq .run.stats.assertions.failed ./api_tests/newman/newman-run-report.json)
 #
 #  #        let failed_status = $iteration_failed>0 || $request_failed>0 ||$testScripts_failed>0 ||$assertion_failed>0
-#            echo "::set-output name=iterations_total::$iterations_total
-#            echo "::set-output name=iteration_failed::$iteration_failed
-#            echo "::set-output name=request_total::$request_total
-#            echo "::set-output name=request_failed::$request_failed
-#            echo "::set-output name=testScripts_total::$testScripts_total
-#            echo "::set-output name=testScripts_failed::$testScripts_failed
-#            echo "::set-output name=assertion_total::$assertion_total
-#            echo "::set-output name=assertion_failed::$assertion_failed
+            echo "::set-output name=iterations_total::$iterations_total
+            echo "::set-output name=iteration_failed::$iteration_failed
+            echo "::set-output name=request_total::$request_total
+            echo "::set-output name=request_failed::$request_failed
+            echo "::set-output name=testScripts_total::$testScripts_total
+            echo "::set-output name=testScripts_failed::$testScripts_failed
+            echo "::set-output name=assertion_total::$assertion_total
+            echo "::set-output name=assertion_failed::$assertion_failed
 
   #          echo "::set-output name=failed_status::failed_status
 
