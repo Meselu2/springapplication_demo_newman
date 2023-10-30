@@ -87,29 +87,29 @@ jobs:
           node-version: "18"
       - name: Install newman
         run: npm install -g newman
-#      - name: "Run tests"
-#        run: newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export .api_tests/newman/newman-run-report.json
-#            iteration_total=$(jq .run.stats.iterations.total ./api_tests/newman/newman-run-report.json)
-#            iteration_failed=$(jq .run.stats.iterations.failed ./api_tests/newman/newman-run-report.json)
-#            request_total=$(jq .run.stats.requests.total ./api_tests/newman/newman-run-report.json)
-#            request_failed=$(jq .run.stats.requests.failed ./api_tests/newman/newman-run-report.json)
-#            testScripts_total=$(jq .run.stats.testScripts.total ./api_tests/newman/newman-run-report.json)
-#            testScripts_failed=$(jq .run.stats.testScripts.failed ./api_tests/newman/newman-run-report.json)
-#            assertion_total=$(jq .run.stats.assertions.total ./api_tests/newman/newman-run-report.json)
-#            assertion_failed=$(jq .run.stats.assertions.failed ./api_tests/newman/newman-run-report.json)
-#
-#  #        let failed_status = $iteration_failed>0 || $request_failed>0 ||$testScripts_failed>0 ||$assertion_failed>0
-#            echo "::set-output name=iterations_total::$iterations_total
-#            echo "::set-output name=iteration_failed::$iteration_failed
-#            echo "::set-output name=request_total::$request_total
-#            echo "::set-output name=request_failed::$request_failed
-#            echo "::set-output name=testScripts_total::$testScripts_total
-#            echo "::set-output name=testScripts_failed::$testScripts_failed
-#            echo "::set-output name=assertion_total::$assertion_total
-#            echo "::set-output name=assertion_failed::$assertion_failed
-#
-#  #          echo "::set-output name=failed_status::failed_status
-#
+      - name: "Run tests"
+        run: newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export .api_tests/newman/newman-run-report.json
+            iteration_total=$(jq .run.stats.iterations.total ./api_tests/newman/newman-run-report.json)
+            iteration_failed=$(jq .run.stats.iterations.failed ./api_tests/newman/newman-run-report.json)
+            request_total=$(jq .run.stats.requests.total ./api_tests/newman/newman-run-report.json)
+            request_failed=$(jq .run.stats.requests.failed ./api_tests/newman/newman-run-report.json)
+            testScripts_total=$(jq .run.stats.testScripts.total ./api_tests/newman/newman-run-report.json)
+            testScripts_failed=$(jq .run.stats.testScripts.failed ./api_tests/newman/newman-run-report.json)
+            assertion_total=$(jq .run.stats.assertions.total ./api_tests/newman/newman-run-report.json)
+            assertion_failed=$(jq .run.stats.assertions.failed ./api_tests/newman/newman-run-report.json)
+
+  #        let failed_status = $iteration_failed>0 || $request_failed>0 ||$testScripts_failed>0 ||$assertion_failed>0
+            echo "::set-output name=iterations_total::$iterations_total
+            echo "::set-output name=iteration_failed::$iteration_failed
+            echo "::set-output name=request_total::$request_total
+            echo "::set-output name=request_failed::$request_failed
+            echo "::set-output name=testScripts_total::$testScripts_total
+            echo "::set-output name=testScripts_failed::$testScripts_failed
+            echo "::set-output name=assertion_total::$assertion_total
+            echo "::set-output name=assertion_failed::$assertion_failed
+
+  #          echo "::set-output name=failed_status::failed_status
+
 #      - name: Publish report
 #        run: |
 #
@@ -208,12 +208,12 @@ jobs:
 #          ],
 #          ${${{steps.newman.outputs.failed_status}} == true ? failureMessage : successMessage}
 #          }' https://hooks.slack.com/services/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
-#  #
-#  #
-#  ##      uses: MeilCli/slack-upload-file@v1
-#  ##      with:
-#  ##        slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
-#  ##        file_path: './api_tests/htmlreport.html'
-#  ##        file_name: 'postmanReport.html'
-#  ##        file_type: 'html'
-#  ##        channels: 'api-test'
+  #
+  #
+  ##      uses: MeilCli/slack-upload-file@v1
+  ##      with:
+  ##        slack_token: ${{ secrets.SLACK_BOT_TOKEN }}
+  ##        file_path: './api_tests/htmlreport.html'
+  ##        file_name: 'postmanReport.html'
+  ##        file_type: 'html'
+  ##        channels: 'api-test'
