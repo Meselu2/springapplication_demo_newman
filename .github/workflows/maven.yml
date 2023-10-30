@@ -87,6 +87,8 @@ jobs:
           node-version: "18"
       - name: Install newman
         run: npm install -g newman
+      - name: Install newman report
+        run: npm install -g newman-reporter-json
       - name: Run tests
         run: |
             newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export .api_tests/newman/newman-run-report.json
@@ -111,104 +113,104 @@ jobs:
 
   #          echo "::set-output name=failed_status::failed_status
 
-      - name: Publish report
-        run: |
-  
-          let failureMessage = `
-            "attachments": [
-              {
-                "mrkdwn_in": ["text"],
-                "color": "#FF0000",
-                "author_name": "${author}",
-                "title": ":fire: Failures :fire:",
-                "footer": "Newman Test",
-                "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
-              }
-            ]`
-          let successMessage = `
-          "attachments": [
-            {
-              "mrkdwn_in": ["text"],
-              "color": "#008000",
-              "author_name": "${author}",
-              "title": ":white_check_mark: All Passed :white_check_mark:",
-              "footer": "Newman Test",
-              "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
-            }
-          ]`
-         curl -X POST -H 'Content-type: application/json' --data
-            '{"blocks": [
-              {
-                  "type": "section",
-                  "text": {
-                      "type": "mrkdwn",
-                      "text": "*Test Summary*"
-                  }
-              },
-              {
-                  "type": "section",
-                  "fields": [
-                      {
-                          "type": "mrkdwn",
-                          "text": " "
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "*Executed*\t\t*Failed*"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Iteration"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.iterations_total}}\t\t\t\t\t\t${{steps.newman.outputs.iterations_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Requests:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.request_total}}\t\t\t\t\t\t${{steps.newman.outputs.request_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "test-scripts:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.testScripts_total}}\t\t\t\t\t\t${{steps.newman.outputs.testScripts_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Assertions:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.assertion_total}}\t\t\t\t\t\t${{steps.newman.outputs.assertion_failed}}"
-                      }
-                  ]
-              },
-              {
-                  "type": "section",
-                  "fields": [
-                  {
-                      "type": "mrkdwn",
-                      "text": "Average response time:"
-                  },
-                  {
-                      "type": "mrkdwn",
-                      "text": "000"
-                  }
-              ]
-              },
-              {
-                  "type": "divider"
-              }
-          ],
-#          ${${{steps.newman.outputs.failed_status}} == true ? failureMessage : successMessage}
-          }' https://hooks.slack.com/services/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
+#      - name: Publish report
+#        run: |
+#
+#          let failureMessage = `
+#            "attachments": [
+#              {
+#                "mrkdwn_in": ["text"],
+#                "color": "#FF0000",
+#                "author_name": "${author}",
+#                "title": ":fire: Failures :fire:",
+#                "footer": "Newman Test",
+#                "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
+#              }
+#            ]`
+#          let successMessage = `
+#          "attachments": [
+#            {
+#              "mrkdwn_in": ["text"],
+#              "color": "#008000",
+#              "author_name": "${author}",
+#              "title": ":white_check_mark: All Passed :white_check_mark:",
+#              "footer": "Newman Test",
+#              "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
+#            }
+#          ]`
+#         curl -X POST -H 'Content-type: application/json' --data
+#            '{"blocks": [
+#              {
+#                  "type": "section",
+#                  "text": {
+#                      "type": "mrkdwn",
+#                      "text": "*Test Summary*"
+#                  }
+#              },
+#              {
+#                  "type": "section",
+#                  "fields": [
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": " "
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "*Executed*\t\t*Failed*"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "Iteration"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "${{steps.newman.outputs.iterations_total}}\t\t\t\t\t\t${{steps.newman.outputs.iterations_failed}}"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "Requests:"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "${{steps.newman.outputs.request_total}}\t\t\t\t\t\t${{steps.newman.outputs.request_failed}}"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "test-scripts:"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "${{steps.newman.outputs.testScripts_total}}\t\t\t\t\t\t${{steps.newman.outputs.testScripts_failed}}"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "Assertions:"
+#                      },
+#                      {
+#                          "type": "mrkdwn",
+#                          "text": "${{steps.newman.outputs.assertion_total}}\t\t\t\t\t\t${{steps.newman.outputs.assertion_failed}}"
+#                      }
+#                  ]
+#              },
+#              {
+#                  "type": "section",
+#                  "fields": [
+#                  {
+#                      "type": "mrkdwn",
+#                      "text": "Average response time:"
+#                  },
+#                  {
+#                      "type": "mrkdwn",
+#                      "text": "000"
+#                  }
+#              ]
+#              },
+#              {
+#                  "type": "divider"
+#              }
+#          ],
+##          ${${{steps.newman.outputs.failed_status}} == true ? failureMessage : successMessage}
+#          }' https://hooks.slack.com/services/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
   
   
   #      uses: MeilCli/slack-upload-file@v1
