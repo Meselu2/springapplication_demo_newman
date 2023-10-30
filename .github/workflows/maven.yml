@@ -110,8 +110,9 @@ jobs:
             echo "::set-output name=assertion_total::$assertion_total"
             echo "::set-output name=assertion_failed::$assertion_failed"
       - name: Publish report
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+        run:  |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+
 
 #           curl -X POST -H 'Content-type: application/json' --data
 #              '{
