@@ -88,8 +88,8 @@ jobs:
       - name: Install newman
         run: npm install -g newman
       - name: Run tests
-        run: npm install -g newman
-#            newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export .api_tests/newman/newman-run-report.json
+        run: |
+            newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export .api_tests/newman/newman-run-report.json
 #            iteration_total=$(jq .run.stats.iterations.total ./api_tests/newman/newman-run-report.json)
 #            iteration_failed=$(jq .run.stats.iterations.failed ./api_tests/newman/newman-run-report.json)
 #            request_total=$(jq .run.stats.requests.total ./api_tests/newman/newman-run-report.json)
