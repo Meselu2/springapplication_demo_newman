@@ -101,7 +101,7 @@ jobs:
             assertion_total=$(jq .run.stats.assertions.total ./api_tests/newman/newman-run-report.json)
             assertion_failed=$(jq .run.stats.assertions.failed ./api_tests/newman/newman-run-report.json)
           
-            echo "::set-output name=request_total::$request_total
+            echo "::set-output name=request_total::$request_total"
 
 #           let failed_status = $iteration_failed>0 || $request_failed>0 ||$testScripts_failed>0 ||$assertion_failed>0
 #            echo "::set-output name=iterations_total::$iterations_total
