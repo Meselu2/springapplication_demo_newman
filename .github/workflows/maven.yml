@@ -87,8 +87,6 @@ jobs:
           node-version: "18"
       - name: Install newman
         run: npm install -g newman
-      - name: Install newman report
-        run: npm install -g newman-reporter-json
       - name: Run tests
         run: |
             newman run ./api_tests/Even-odd-test.postman_collection.json -e ./api_tests/even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r  json,cli --reporter-json-export ./api_tests/newman/newman-run-report.json
