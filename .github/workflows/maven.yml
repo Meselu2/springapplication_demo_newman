@@ -91,7 +91,7 @@ jobs:
     - name: "Install newman reporter"
       run: npm i -g newman-reporter-slackmsg
     - name: "Run tests"
-      run: newman run Even-odd-test.postman_collection.json -e even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r slackmsg --reporter-slackmsg-webhookurl '${{ secrets.SLACK_BOT_TOKEN }}'
+      run: newman run Even-odd-test.postman_collection.json -e even-odd-postman-enviroment.postman_environment.json --suppress-exit-code -r slackmsg --reporter-slackmsg-webhookurl 'https://hooks.slack.com/services/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'
 #    - name: Publish report
 #      uses: MeilCli/slack-upload-file@v1
 #      with:
