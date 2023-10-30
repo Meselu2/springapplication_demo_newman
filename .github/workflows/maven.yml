@@ -124,79 +124,79 @@ jobs:
 
       - name: Publish report
         run: |
-         curl -X POST -H 'Content-type: application/json' --data
-            '{"blocks": [
-              {
-                  "type": "section",
-                  "text": {
-                      "type": "mrkdwn",
-                      "text": "*Test Summary*"
-                  }
-              },
-              {
-                  "type": "section",
-                  "fields": [
-                      {
-                          "type": "mrkdwn",
-                          "text": " "
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "*Executed*\t\t*Failed*"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Iteration"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.iterations_total}}\t\t\t\t\t\t${{steps.newman.outputs.iterations_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Requests:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.request_total}}\t\t\t\t\t\t${{steps.newman.outputs.request_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "test-scripts:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.testScripts_total}}\t\t\t\t\t\t${{steps.newman.outputs.testScripts_failed}}"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "Assertions:"
-                      },
-                      {
-                          "type": "mrkdwn",
-                          "text": "${{steps.newman.outputs.assertion_total}}\t\t\t\t\t\t${{steps.newman.outputs.assertion_failed}}"
-                      }
-                  ]
-              },
-              {
-                  "type": "section",
-                  "fields": [
-                  {
-                      "type": "mrkdwn",
-                      "text": "Average response time:"
-                  },
-                  {
-                      "type": "mrkdwn",
-                      "text": "000"
-                  }
-              ]
-              },
-              {
-                  "type": "divider"
-              }
-          ],
-#          ${${{steps.newman.outputs.failed_status}} == true ? failureMessage : successMessage}
-          }' https://hooks.slack.com/services/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
+           curl -X POST -H 'Content-type: application/json' --data
+              '{"blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "*Test Summary*"
+                    }
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                        {
+                            "type": "mrkdwn",
+                            "text": " "
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*Executed*\t\t*Failed*"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "Iteration"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "${{steps.newman.outputs.iterations_total}}\t\t\t\t\t\t${{steps.newman.outputs.iterations_failed}}"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "Requests:"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "${{steps.newman.outputs.request_total}}\t\t\t\t\t\t${{steps.newman.outputs.request_failed}}"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "test-scripts:"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "${{steps.newman.outputs.testScripts_total}}\t\t\t\t\t\t${{steps.newman.outputs.testScripts_failed}}"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "Assertions:"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "${{steps.newman.outputs.assertion_total}}\t\t\t\t\t\t${{steps.newman.outputs.assertion_failed}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                    {
+                        "type": "mrkdwn",
+                        "text": "Average response time:"
+                    },
+                    {
+                        "type": "mrkdwn",
+                        "text": "000"
+                    }
+                ]
+                },
+                {
+                    "type": "divider"
+                }
+            ],
+  #          ${${{steps.newman.outputs.failed_status}} == true ? failureMessage : successMessage}
+            }' https://hooks.slack.com/services/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
   
   
   #      uses: MeilCli/slack-upload-file@v1
