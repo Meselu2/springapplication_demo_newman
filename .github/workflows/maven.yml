@@ -111,7 +111,7 @@ jobs:
             echo "::set-output name=assertion_failed::$assertion_failed"
       - name: Publish report
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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  
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
 
 #           curl -X POST -H 'Content-type: application/json' --data
 #              '{
